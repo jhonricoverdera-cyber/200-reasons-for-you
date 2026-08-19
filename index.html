@@ -15,6 +15,10 @@
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     min-height: 100vh;
     font-family: 'Poppins', sans-serif;
@@ -68,6 +72,7 @@ body {
 
     background:
         radial-gradient(circle at center, #4b267d, #160d27 70%);
+
     padding: 25px;
 }
 
@@ -109,12 +114,14 @@ body {
 .passwordBox input {
     width: 100%;
     padding: 15px;
+
     border: none;
     outline: none;
 
     border-radius: 15px;
     background: rgba(255,255,255,.13);
     color: white;
+
     text-align: center;
     font-size: 18px;
     letter-spacing: 4px;
@@ -225,7 +232,7 @@ body {
     }
 }
 
-/* PHOTO */
+/* PHOTOS */
 
 .photoSection {
     padding: 60px 0;
@@ -286,19 +293,33 @@ body {
     margin-bottom: 35px;
 }
 
-.reasonBox {
+/* SCROLLING REASONS */
+
+#reasonsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    margin-top: 50px;
+}
+
+.scrollReason {
     position: relative;
-    min-height: 330px;
+
+    min-height: 270px;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    padding: 40px 25px;
+    padding: 45px 30px;
 
     background:
-        linear-gradient(145deg, rgba(141,82,217,.18), rgba(255,216,61,.08)),
+        linear-gradient(
+            145deg,
+            rgba(141,82,217,.18),
+            rgba(255,216,61,.08)
+        ),
         rgba(255,255,255,.07);
 
     border: 1px solid rgba(255,255,255,.14);
@@ -307,106 +328,184 @@ body {
     box-shadow: 0 25px 70px rgba(0,0,0,.3);
 
     overflow: hidden;
+
+    opacity: 0;
+    transform: translateY(60px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
 }
 
-.reasonBox::before {
+.scrollReason.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scrollReason::before {
     content: "♥";
     position: absolute;
-    font-size: 250px;
+
+    font-size: 220px;
     color: rgba(255,255,255,.025);
-    z-index: 0;
+
+    pointer-events: none;
 }
 
-.reasonNumber {
+.scrollReasonNumber {
     position: relative;
     z-index: 1;
 
     color: #ffe66d;
+
     font-weight: 600;
     letter-spacing: 3px;
     font-size: 14px;
+
+    margin-bottom: 20px;
 }
 
-.reasonText {
+.scrollReasonText {
     position: relative;
     z-index: 1;
 
     font-family: 'DM Serif Display', serif;
+
     font-size: clamp(25px, 5vw, 40px);
     line-height: 1.3;
 
     max-width: 700px;
-    margin-top: 20px;
 }
 
-.reasonButtons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 25px;
+/* SURPRISE AFTER 199 */
+
+.surpriseSection {
+    text-align: center;
+    padding: 110px 20px 70px;
 }
 
-.reasonButtons button,
-.musicButton {
+.surpriseHint {
+    color: #ccc;
+    font-size: 15px;
+    margin-bottom: 25px;
+}
+
+.surpriseButton {
     border: none;
-    padding: 13px 24px;
-    border-radius: 14px;
+
+    padding: 17px 30px;
+    border-radius: 16px;
+
+    background: linear-gradient(90deg, #8d52d9, #ffd83d);
+    color: #1b1033;
 
     font-family: 'Poppins', sans-serif;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 700;
 
     cursor: pointer;
+
+    box-shadow: 0 10px 35px rgba(255,216,61,.15);
+
     transition: .3s;
 }
 
-.prev {
-    background: rgba(255,255,255,.1);
-    color: white;
+.surpriseButton:hover {
+    transform: translateY(-4px) scale(1.03);
 }
 
-.next {
-    background: linear-gradient(90deg, #8d52d9, #ffd83d);
-    color: #1b1033;
-}
+/* REASON 200 */
 
-.reasonButtons button:hover,
-.musicButton:hover {
-    transform: translateY(-3px);
-}
+.reason200 {
+    display: none;
 
-.progress {
-    width: 100%;
-    max-width: 600px;
-    height: 7px;
+    min-height: 650px;
 
-    margin: 30px auto 0;
+    padding: 60px 30px;
 
-    background: rgba(255,255,255,.1);
-    border-radius: 20px;
-    overflow: hidden;
-}
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 
-.progressBar {
-    height: 100%;
-    width: .5%;
-
-    background: linear-gradient(90deg, #8d52d9, #ffe66d);
-    border-radius: 20px;
-
-    transition: width .5s ease;
-}
-
-/* MUSIC */
-
-.musicSection {
     text-align: center;
-    padding: 60px 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(141,82,217,.35),
+            rgba(255,216,61,.08),
+            transparent 70%
+        );
+
+    border-radius: 35px;
 }
 
-.musicButton {
-    background: rgba(255,255,255,.1);
-    color: white;
-    border: 1px solid rgba(255,255,255,.15);
+.reason200.show {
+    display: flex;
+
+    animation: surpriseAppear 1.5s ease;
+}
+
+.specialHeart {
+    font-size: 80px;
+
+    animation: heartbeat 1.5s infinite;
+}
+
+.specialNumber {
+    margin-top: 25px;
+
+    color: #ffe66d;
+
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 4px;
+}
+
+.specialText {
+    margin-top: 25px;
+
+    font-family: 'DM Serif Display', serif;
+
+    font-size: clamp(28px, 6vw, 50px);
+    line-height: 1.4;
+
+    max-width: 750px;
+
+    background: linear-gradient(
+        90deg,
+        #fff,
+        #ffe66d,
+        #c58cff
+    );
+
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.specialSubtext {
+    margin-top: 30px;
+
+    max-width: 650px;
+
+    color: #ddd;
+    line-height: 1.9;
+
+    font-size: 16px;
+}
+
+@keyframes surpriseAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(.9) translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+
 }
 
 /* FINAL */
@@ -451,6 +550,7 @@ body {
 .signature {
     margin-top: 35px;
     color: #ffe66d;
+
     font-family: 'DM Serif Display', serif;
     font-size: 28px;
 }
@@ -506,18 +606,30 @@ footer {
         font-size: 58px;
     }
 
-    .reasonBox {
-        min-height: 380px;
+    .scrollReason {
+        min-height: 320px;
+        padding: 40px 22px;
     }
 
-    .reasonButtons {
-        flex-wrap: wrap;
+    .specialText {
+        font-size: 30px;
+    }
+
+    .specialSubtext {
+        font-size: 14px;
     }
 }
 </style>
 </head>
 
 <body>
+
+<!-- BACKGROUND MUSIC -->
+
+<audio id="backgroundMusic" loop>
+    <source src="song.mp3" type="audio/mpeg">
+</audio>
+
 
 <!-- PASSWORD -->
 
@@ -633,57 +745,52 @@ footer {
             <h2>Reasons #1–200 💛</h2>
 
             <p class="sectionIntro">
-                Take your time. There's no need to rush these.
+                Take your time. Scroll slowly. I want you to read every single one. 💜
             </p>
 
-            <div class="reasonBox">
+            <div id="reasonsContainer"></div>
 
-                <div class="reasonNumber" id="reasonNumber">
-                    REASON 1 OF 200
+
+            <!-- AFTER REASON 199 -->
+
+            <div class="surpriseSection" id="surpriseSection">
+
+                <div class="surpriseHint">
+                    You made it this far... 🥹
                 </div>
 
-                <div class="reasonText" id="reasonText">
-                    I love the way you make ordinary moments feel special.
-                </div>
-
-            </div>
-
-            <div class="reasonButtons">
-
-                <button class="prev" onclick="previousReason()">
-                    ← Back
-                </button>
-
-                <button class="next" onclick="nextReason()">
-                    Next reason →
+                <button
+                    class="surpriseButton"
+                    onclick="revealReason200()"
+                >
+                    One more reason... 💜
                 </button>
 
             </div>
 
-            <div class="progress">
-                <div class="progressBar" id="progressBar"></div>
+
+            <!-- REASON 200 -->
+
+            <div class="reason200" id="reason200">
+
+                <div class="specialHeart">
+                    💜
+                </div>
+
+                <div class="specialNumber">
+                    REASON 200
+                </div>
+
+                <div class="specialText" id="specialReasonText">
+                </div>
+
+                <div class="specialSubtext">
+                    And if you're wondering why I made all of this...
+                    it's because even 200 reasons still aren't enough
+                    to explain how much you mean to me. 💛
+                </div>
+
             </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- MUSIC -->
-
-    <section class="musicSection">
-
-        <div class="container">
-
-            <h2>Our Song 🎵</h2>
-
-            <p class="sectionIntro">
-                Play this while you're reading everything.
-            </p>
-
-            <button class="musicButton" onclick="openSong()">
-                🎵 Play our song
-            </button>
 
         </div>
 
@@ -768,9 +875,22 @@ function unlock() {
     if (password === "05272008") {
 
         document.getElementById("passwordScreen").style.display = "none";
+
         document.getElementById("website").style.display = "block";
 
         window.scrollTo(0, 0);
+
+
+        /* START BACKGROUND MUSIC */
+
+        const music =
+            document.getElementById("backgroundMusic");
+
+        music.volume = 0.35;
+
+        music.play().catch(() => {
+            console.log("Music could not start automatically.");
+        });
 
     } else {
 
@@ -999,104 +1119,129 @@ const reasons = [
 "Because I don't think I'll ever run out of reasons to appreciate u.",
 "Because there's always something new I find cute about u.",
 "Because knowing u has become one of my favorite parts of my life.",
-"And last but not least. To my mj if ur asking why i did this. because at the end of this every reason. I would still choose you over and over again. :)" ];
+"And last but not least. To my mj if ur asking why i did this. because at the end of this every reason. I would still choose you over and over again. :)"
 
-
-
-/* =========================
-   REASON CONTROLS
-========================= */
-
-let currentReason = 0;
-
-function updateReason() {
-
-    const number =
-        document.getElementById("reasonNumber");
-
-    const text =
-        document.getElementById("reasonText");
-
-    const bar =
-        document.getElementById("progressBar");
-
-    number.innerText =
-        "REASON " + (currentReason + 1) + " OF 200";
-
-    text.innerText =
-        reasons[currentReason];
-
-    bar.style.width =
-        ((currentReason + 1) / 200 * 100) + "%";
-
-    text.style.animation = "none";
-
-    setTimeout(() => {
-        text.style.animation = "appear .4s ease";
-    }, 10);
-
-    if (currentReason === 199) {
-
-        setTimeout(() => {
-
-            document.getElementById("finalSection")
-                .scrollIntoView({
-                    behavior: "smooth"
-                });
-
-        }, 1000);
-
-    }
-}
-
-
-function nextReason() {
-
-    if (currentReason < 199) {
-
-        currentReason++;
-
-        updateReason();
-
-    }
-
-}
-
-
-function previousReason() {
-
-    if (currentReason > 0) {
-
-        currentReason--;
-
-        updateReason();
-
-    }
-
-}
+];
 
 
 /* =========================
-   MUSIC
+   CREATE REASONS 1–199
 ========================= */
+
+const reasonsContainer =
+    document.getElementById("reasonsContainer");
+
+const surpriseSection =
+    document.getElementById("surpriseSection");
+
+const reason200 =
+    document.getElementById("reason200");
+
+const specialReasonText =
+    document.getElementById("specialReasonText");
+
 
 /*
-IMPORTANT:
-Replace the URL below with the actual YouTube WATCH URL
-for your song.
-
-Example:
-https://www.youtube.com/watch?v=XXXXXXXXXXX
+   The last item in your list is Reason 200.
+   Everything before it becomes 1–199.
 */
 
-function openSong() {
+const totalReasons = reasons.length;
 
-    window.open(
-        "https://share.google/8EbdhouvynFAuIPBs",
-        "_blank"
+
+/* CREATE 1–199 */
+
+for (let i = 0; i < totalReasons - 1; i++) {
+
+    const card =
+        document.createElement("div");
+
+    card.className = "scrollReason";
+
+    card.innerHTML = `
+        <div class="scrollReasonNumber">
+            REASON ${i + 1} OF 200
+        </div>
+
+        <div class="scrollReasonText">
+            ${reasons[i]}
+        </div>
+    `;
+
+    reasonsContainer.appendChild(card);
+}
+
+
+/* PUT YOUR REAL #200 INTO THE SURPRISE */
+
+specialReasonText.innerText =
+    reasons[reasons.length - 1];
+
+
+/* =========================
+   FADE REASONS IN WHILE SCROLLING
+========================= */
+
+const reasonObserver =
+    new IntersectionObserver(
+        (entries) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("show");
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.15
+        }
     );
 
+
+document
+    .querySelectorAll(".scrollReason")
+    .forEach(card => {
+
+        reasonObserver.observe(card);
+
+    });
+
+
+/* =========================
+   REVEAL REASON 200
+========================= */
+
+function revealReason200() {
+
+    surpriseSection.style.display = "none";
+
+    reason200.classList.add("show");
+
+    setTimeout(() => {
+
+        reason200.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    }, 150);
+
 }
+
+
+/* =========================
+   BACKGROUND MUSIC
+========================= */
+
+const backgroundMusic =
+    document.getElementById("backgroundMusic");
+
+backgroundMusic.volume = 0.35;
 
 
 /* =========================
@@ -1110,10 +1255,19 @@ function createHeart() {
 
     heart.className = "heart";
 
-    const hearts = ["💜", "💛", "♡", "♥"];
+    const hearts = [
+        "💜",
+        "💛",
+        "♡",
+        "♥"
+    ];
 
     heart.innerText =
-        hearts[Math.floor(Math.random() * hearts.length)];
+        hearts[
+            Math.floor(
+                Math.random() * hearts.length
+            )
+        ];
 
     heart.style.left =
         Math.random() * 100 + "vw";
@@ -1127,16 +1281,14 @@ function createHeart() {
     document.body.appendChild(heart);
 
     setTimeout(() => {
+
         heart.remove();
+
     }, 14000);
 }
 
+
 setInterval(createHeart, 700);
-
-
-/* INITIALIZE */
-
-updateReason();
 
 </script>
 
