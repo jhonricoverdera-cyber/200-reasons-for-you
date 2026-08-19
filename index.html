@@ -625,9 +625,9 @@ footer {
 <body>
 
 <!-- BACKGROUND MUSIC -->
+<audio id="backgroundMusic" loop preload="auto">
+    <source src="./Oursong.mp3" type="audio/mpeg">
 
-<audio id="backgroundMusic" loop>
-    <source src="song.mp3" type="audio/mpeg">
 </audio>
 
 
@@ -874,12 +874,31 @@ function unlock() {
 
     if (password === "05272008") {
 
+        // Hide password screen
         document.getElementById("passwordScreen").style.display = "none";
 
+        // Show website
         document.getElementById("website").style.display = "block";
 
+        // Go to the top
         window.scrollTo(0, 0);
 
+        // Start background music
+        const music =
+            document.getElementById("backgroundMusic");
+
+        music.volume = 0.35;
+
+        music.play().catch(function(error) {
+            console.log("Music could not start:", error);
+        });
+
+    } else {
+
+        document.getElementById("error").style.display = "block";
+
+    }
+}
 
         /* START BACKGROUND MUSIC */
 
