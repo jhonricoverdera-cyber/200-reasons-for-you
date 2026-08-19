@@ -1,1 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>200 Reasons Why I Love You 💜💛</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255,220,70,.18), transparent 30%),
+        radial-gradient(circle at 80% 80%, rgba(155,80,255,.25), transparent 35%),
+        linear-gradient(135deg, #160d27, #30165c, #1b1033);
+}
+
+/* FLOATING HEARTS */
+
+.heart {
+    position: fixed;
+    bottom: -30px;
+    font-size: 18px;
+    opacity: .6;
+    pointer-events: none;
+    animation: floatUp linear infinite;
+    z-index: 0;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: .7;
+    }
+
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* PASSWORD SCREEN */
+
+#passwordScreen {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(circle at center, #4b267d, #160d27 70%);
+    padding: 25px;
+}
+
+.passwordBox {
+    width: min(430px, 100%);
+    padding: 40px 28px;
+    text-align: center;
+
+    background: rgba(255,255,255,.09);
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 28px;
+
+    backdrop-filter: blur(15px);
+    box-shadow: 0 25px 80px rgba(0,0,0,.45);
+
+    animation: appear .8s ease;
+}
+
+.passwordBox .bigHeart {
+    font-size: 55px;
+    animation: heartbeat 1.5s infinite;
+}
+
+.passwordBox h1 {
+    margin-top: 15px;
+    font-family: 'DM Serif Display', serif;
+    font-size: 34px;
+
+    background: linear-gradient(90deg, #fff, #ffe66d);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.passwordBox p {
+    margin: 12px 0 25px;
+    color: #ddd;
+}
+
+.passwordBox input {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    outline: none;
+
+    border-radius: 15px;
+    background: rgba(255,255,255,.13);
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    letter-spacing: 4px;
+}
+
+.passwordBox input::placeholder {
+    color: #bbb;
+    letter-spacing: 1px;
+}
+
+.passwordBox button {
+    width: 100%;
+    margin-top: 14px;
+    padding: 14px;
+
+    border: none;
+    border-radius: 15px;
+
+    background: linear-gradient(90deg, #8d52d9, #ffd83d);
+    color: #1a1029;
+
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.passwordBox button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255,216,61,.25);
+}
+
+#error {
+    display: none;
+    color: #ff9cbd;
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+/* MAIN */
+
+#website {
+    display: none;
+    position: relative;
+    z-index: 1;
+}
+
+.container {
+    width: min(900px, 92%);
+    margin: auto;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    padding: 50px 0;
+}
+
+.heroContent {
+    animation: appear 1.2s ease;
+}
+
+.smallText {
+    color: #ffe66d;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(50px, 10vw, 95px);
+    line-height: .95;
+    margin: 18px 0;
+
+    background: linear-gradient(90deg, #ffffff, #ffe66d, #c58cff);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    max-width: 600px;
+    margin: auto;
+    color: #ddd;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+.scrollText {
+    margin-top: 50px;
+    color: #aaa;
+    font-size: 13px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    50% {
+        transform: translateY(8px);
+    }
+}
+
+/* PHOTO */
+
+.photoSection {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.photoSection h2,
+.reasonsSection h2,
+.finalSection h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.photoGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 30px;
+}
+
+.photoCard {
+    background: rgba(255,255,255,.08);
+    border-radius: 22px;
+    padding: 8px;
+    overflow: hidden;
+
+    box-shadow: 0 15px 50px rgba(0,0,0,.3);
+    transition: .4s;
+}
+
+.photoCard:hover {
+    transform: translateY(-8px) rotate(1deg);
+}
+
+.photoCard img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.photoCard p {
+    padding: 12px 5px;
+    color: #ddd;
+    font-size: 13px;
+}
+
+/* REASONS */
+
+.reasonsSection {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.sectionIntro {
+    color: #cfcfcf;
+    margin-bottom: 35px;
+}
+
+.reasonBox {
+    position: relative;
+    min-height: 330px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px 25px;
+
+    background:
+        linear-gradient(145deg, rgba(141,82,217,.18), rgba(255,216,61,.08)),
+        rgba(255,255,255,.07);
+
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: 30px;
+
+    box-shadow: 0 25px 70px rgba(0,0,0,.3);
+
+    overflow: hidden;
+}
+
+.reasonBox::before {
+    content: "♥";
+    position: absolute;
+    font-size: 250px;
+    color: rgba(255,255,255,.025);
+    z-index: 0;
+}
+
+.reasonNumber {
+    position: relative;
+    z-index: 1;
+
+    color: #ffe66d;
+    font-weight: 600;
+    letter-spacing: 3px;
+    font-size: 14px;
+}
+
+.reasonText {
+    position: relative;
+    z-index: 1;
+
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(25px, 5vw, 40px);
+    line-height: 1.3;
+
+    max-width: 700px;
+    margin-top: 20px;
+}
+
+.reasonButtons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.reasonButtons button,
+.musicButton {
+    border: none;
+    padding: 13px 24px;
+    border-radius: 14px;
+
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: .3s;
+}
+
+.prev {
+    background: rgba(255,255,255,.1);
+    color: white;
+}
+
+.next {
+    background: linear-gradient(90deg, #8d52d9, #ffd83d);
+    color: #1b1033;
+}
+
+.reasonButtons button:hover,
+.musicButton:hover {
+    transform: translateY(-3px);
+}
+
+.progress {
+    width: 100%;
+    max-width: 600px;
+    height: 7px;
+
+    margin: 30px auto 0;
+
+    background: rgba(255,255,255,.1);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progressBar {
+    height: 100%;
+    width: .5%;
+
+    background: linear-gradient(90deg, #8d52d9, #ffe66d);
+    border-radius: 20px;
+
+    transition: width .5s ease;
+}
+
+/* MUSIC */
+
+.musicSection {
+    text-align: center;
+    padding: 60px 0;
+}
+
+.musicButton {
+    background: rgba(255,255,255,.1);
+    color: white;
+    border: 1px solid rgba(255,255,255,.15);
+}
+
+/* FINAL */
+
+.finalSection {
+    min-height: 100vh;
+    padding: 100px 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.finalCard {
+    padding: 45px 30px;
+
+    background: rgba(255,255,255,.08);
+    border-radius: 30px;
+
+    border: 1px solid rgba(255,255,255,.15);
+
+    box-shadow: 0 30px 90px rgba(0,0,0,.4);
+}
+
+.finalHeart {
+    font-size: 70px;
+    animation: heartbeat 1.5s infinite;
+}
+
+.finalCard h2 {
+    margin-top: 20px;
+}
+
+.finalCard p {
+    max-width: 650px;
+    margin: 20px auto;
+    color: #ddd;
+    line-height: 1.9;
+}
+
+.signature {
+    margin-top: 35px;
+    color: #ffe66d;
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #777;
+    font-size: 12px;
+}
+
+/* ANIMATIONS */
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.15);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* MOBILE */
+
+@media(max-width: 700px) {
+
+    .photoGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .photoCard img {
+        height: 360px;
+    }
+
+    .hero h1 {
+        font-size: 58px;
+    }
+
+    .reasonBox {
+        min-height: 380px;
+    }
+
+    .reasonButtons {
+        flex-wrap: wrap;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PASSWORD -->
+
+<div id="passwordScreen">
+
+    <div class="passwordBox">
+
+        <div class="bigHeart">💜</div>
+
+        <h1>For Mj</h1>
+
+        <p>
+            I made something for you.<br>
+            But you need the secret password first. 🤭
+        </p>
+
+        <input
+            type="password"
+            id="passwordInput"
+            placeholder="Enter the password"
+        >
+
+        <button onclick="unlock()">
+            Open my heart 💛
+        </button>
+
+        <div id="error">
+            Nopeee 😭 Try again.
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- WEBSITE -->
+
+<div id="website">
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="container heroContent">
+
+            <div class="smallText">
+                From Rico, with love
+            </div>
+
+            <h1>
+                200 Reasons<br>
+                Why I Love You
+            </h1>
+
+            <p>
+                Mj, I could probably give you a thousand reasons,
+                but I decided to start with 200.
+                Some are big, some are small, and some are probably
+                things you don't even realize I notice.
+            </p>
+
+            <div class="scrollText">
+                ↓ Keep scrolling, love ↓
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PHOTOS -->
+
+    <section class="photoSection">
+
+        <div class="container">
+
+            <h2>Us 💜</h2>
+
+            <p class="sectionIntro">
+                A few little memories that I want to keep.
+            </p>
+
+            <div class="photoGrid">
+
+                <div class="photoCard">
+                    <img src="photo1.jpg" alt="Our memory">
+                    <p>One of the little moments I want to remember.</p>
+                </div>
+
+                <div class="photoCard">
+                    <img src="photo2.jpg" alt="Our memory">
+                    <p>Even the random moments with you mean something to me.</p>
+                </div>
+
+                <div class="photoCard">
+                    <img src="photo3.jpg" alt="Our memory">
+                    <p>One picture, one memory, one reason to smile.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- REASONS -->
+
+    <section class="reasonsSection">
+
+        <div class="container">
+
+            <h2>Reasons #1–200 💛</h2>
+
+            <p class="sectionIntro">
+                Take your time. There's no need to rush these.
+            </p>
+
+            <div class="reasonBox">
+
+                <div class="reasonNumber" id="reasonNumber">
+                    REASON 1 OF 200
+                </div>
+
+                <div class="reasonText" id="reasonText">
+                    I love the way you make ordinary moments feel special.
+                </div>
+
+            </div>
+
+            <div class="reasonButtons">
+
+                <button class="prev" onclick="previousReason()">
+                    ← Back
+                </button>
+
+                <button class="next" onclick="nextReason()">
+                    Next reason →
+                </button>
+
+            </div>
+
+            <div class="progress">
+                <div class="progressBar" id="progressBar"></div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- MUSIC -->
+
+    <section class="musicSection">
+
+        <div class="container">
+
+            <h2>Our Song 🎵</h2>
+
+            <p class="sectionIntro">
+                Play this while you're reading everything.
+            </p>
+
+            <button class="musicButton" onclick="openSong()">
+                🎵 Play our song
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- FINAL -->
+
+    <section class="finalSection" id="finalSection">
+
+        <div class="container">
+
+            <div class="finalCard">
+
+                <div class="finalHeart">
+                    💜
+                </div>
+
+                <h2>
+                    You made it to 200.
+                </h2>
+
+                <p>
+                    And honestly, Mj...
+                    200 reasons aren't even close to enough.
+                </p>
+
+                <p>
+                    I could keep writing reasons forever,
+                    because every day I find something new
+                    to love about you.
+                </p>
+
+                <p>
+                    So if you ever wonder whether you're loved,
+                    come back here.
+                    Read this again.
+                    And remember that there is someone who
+                    chooses you, appreciates you, and is grateful
+                    that you came into his life.
+                </p>
+
+                <p>
+                    Thank you for being you.
+                    Thank you for the memories,
+                    the laughs, the little moments,
+                    the conversations, the tampuhan,
+                    and everything in between.
+                </p>
+
+                <div class="signature">
+                    I love you, Mj. 💛
+                    <br>
+                    — Rico
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+        Made with love by Rico for Mj 💜💛
+    </footer>
+
+</div>
+
+
+<script>
+
+/* =========================
+   PASSWORD
+========================= */
+
+function unlock() {
+
+    const password =
+        document.getElementById("passwordInput").value;
+
+    if (password === "07272008") {
+
+        document.getElementById("passwordScreen").style.display = "none";
+        document.getElementById("website").style.display = "block";
+
+        window.scrollTo(0, 0);
+
+    } else {
+
+        document.getElementById("error").style.display = "block";
+
+    }
+}
+
+
+/* ENTER KEY FOR PASSWORD */
+
+document.getElementById("passwordInput").addEventListener(
+    "keypress",
+    function(event) {
+
+        if (event.key === "Enter") {
+            unlock();
+        }
+
+    }
+);
+
+
+/* =========================
+   200 REASONS
+========================= */
+
+const reasons = [
+
+"Because ur beautiful",
+"Because u make my day better",
+"You make me feel butterflies in my stomach",
+"You're kind",
+"You're my answered prayer",
+"Because you changed me",
+"You brought my best version of myself",
+"You make me smile, even if it is the smallest things",
+"You make me feel home",
+"Because you are who u are no",
+"Because u make me feel special without even trying.",
+"Because I love the way u smile.",
+"Because your laugh is one of my favorite sounds.",
+"Because I love talking to u, even about random things.",
+"Because u make boring days feel less boring.",
+"Because I always look forward to talking to u.",
+"Because u make me excited to see u.",
+"Because I feel comfortable being myself around u.",
+"Because I can tell u things I don't usually tell people.",
+"Because u actually listen to me.",
+"Because u try to understand me.",
+"Because u care about how I feel.",
+"Because u make me feel heard.",
+"Because u make me feel appreciated.",
+"Because u make me feel wanted.",
+"Because u make me feel important.",
+"Because even your random messages make me smile.",
+"Because I like hearing about your day.",
+"Because I like knowing what you're doing.",
+"Because I genuinely care about u.",
+"Because your happiness matters to me.",
+"Because I care about the things that bother u.",
+"Because I want to be there when things get hard.",
+"Because I want to celebrate your good days with u.",
+"Because I want to comfort u on your bad days.",
+"Because I love seeing u happy.",
+"Because your smile somehow makes me happy too.",
+"Because I love seeing u get excited about things.",
+"Because I love your little reactions.",
+"Because I love your personality.",
+"Because u're fun to be around.",
+"Because I never really get tired of u.",
+"Because I could talk to u for hours.",
+"Because time feels different when I'm with u.",
+"Because I wish I could pause time whenever we're together.",
+"Because I always miss u after we say goodbye.",
+"Because u somehow stay on my mind all day.",
+"Because I think about u more than I probably should.",
+"Because seeing your name pop up makes me smile.",
+"50 reasons that i love you but i think i can do 50 more:)",
+"Because I love hearing your voice.",
+"Because I love spending time with u.",
+"Because even doing nothing with u feels nice.",
+"Because I don't need anything fancy when I'm with u.",
+"Because your presence is already enough for me.",
+"Because u make me feel safe.",
+"Because I feel peaceful whenever I'm with u.",
+"Because u make me feel understood.",
+"Because u accept me even when I'm not at my best.",
+"Because u somehow know how to calm me down.",
+"Because u know how to make me laugh.",
+"Because u know how to make things feel lighter.",
+"Because u notice the little things.",
+"Because u remember the things I tell u.",
+"Because u appreciate even the small things I do.",
+"Because u make my efforts feel worth it.",
+"Because u make me want to do better.",
+"Because u inspire me to become better.",
+"Because I want to become someone u can be proud of.",
+"Because u make me want to give my best.",
+"Because u've helped me grow as a person.",
+"Because u've taught me things without even realizing it.",
+"Because u showed me a different kind of love.",
+"Because u made me realize how much someone can mean to me.",
+"Because u became someone I genuinely don't want to lose.",
+"Because I don't see u as just another person.",
+"Because u're genuinely special to me.",
+"Because u became such a big part of my life.",
+"Because I can't imagine my days being exactly the same without u.",
+"Because I love the way u care about people.",
+"Because u're thoughtful.",
+"Because u're sweet in your own way.",
+"Because u have such a pretty heart.",
+"Because I love how genuine u are.",
+"Because u don't have to pretend around me.",
+"Because I don't have to pretend around u either.",
+"Because I can be weird around u.",
+"Because u somehow tolerate my pagiging makulit.",
+"Because u still put up with me when I'm annoying.",
+"Because u make my corny jokes feel less corny.",
+"Because we can be silly together.",
+"Because I love our random conversations.",
+"Because I love our little inside jokes.",
+"Because I love the memories we've made.",
+"Because I want to make even more memories with u.",
+"Because I want to experience more things with u.",
+"Because even simple dates with u feel special.",
+"Because I love just being beside u.",
+"Because I love looking at u.",
+"100 reason why i love you but i think i can do 100 more because why not :)",
+"Because u can still make me shy.",
+"Because u can still make my heart race.",
+"Because u still give me butterflies.",
+"Because u make me nervous in the best way.",
+"Because I love the feeling I get whenever u're around.",
+"Because u make me feel lucky.",
+"Because I'm genuinely grateful that I met u.",
+"Because I'm grateful that u stayed.",
+"Because I'm grateful for every moment I get with u.",
+"Because u came into my life unexpectedly.",
+"Because meeting u is something I'll always be thankful for.",
+"Because u made ordinary moments memorable.",
+"Because u make me look forward to tomorrow.",
+"Because u give me something to smile about.",
+"Because u give me someone to care for.",
+"Because I genuinely want to take care of u.",
+"Because I want to protect your peace.",
+"Because I want u to feel loved.",
+"Because I want u to feel appreciated.",
+"Because I want u to know how important u are to me.",
+"Because I don't want u to ever feel alone.",
+"Because I want to be someone u can rely on.",
+"Because I want to be there whenever u need someone.",
+"Because I want to listen whenever u need to talk.",
+"Because I want to understand the parts of u that u don't easily show.",
+"Because I want to know u more and more.",
+"Because there's still so much I want to learn about u.",
+"Because I love discovering new things about u.",
+"Because I love your little habits.",
+"Because even your random moods are somehow cute to me.",
+"Because I love how u can be soft and strong at the same time.",
+"Because u're stronger than u think u are.",
+"Because I'm proud of u for the things u've overcome.",
+"Because I admire how u keep going.",
+"Because I want to remind u that u're doing enough.",
+"Because I want to see u achieve the things u dream about.",
+"Because I want to be there cheering for u.",
+"Because I want to see u succeed.",
+"Because I want to see u happy with yourself.",
+"Because I want to see u become the person u want to be.",
+"Because u deserve good things.",
+"Because u deserve to be loved properly.",
+"Because u deserve someone who stays.",
+"Because I want to be that person for u.",
+"Because even when we don't agree, I still want to understand u.",
+"Because even when things get difficult, I don't want to give up easily.",
+"Because u're worth the effort.",
+"Because u're worth the patience.",
+"Because u're worth choosing every day.",
+"Because I don't need a perfect reason to love u. And where at 150 and i can go for more shhshshshs",
+"Because sometimes I just look at u and think, \"damn, sya na talaga yon.\"",
+"Because u make my heart soft.",
+"Because u make me care more than I expected.",
+"Because u make me want to be more expressive.",
+"Because u make me want to show my feelings instead of hiding them.",
+"Because u make me want to try things I've never tried before.",
+"Because u make me brave enough to open up.",
+"Because I trust u with parts of myself.",
+"Because u make me feel like I can be vulnerable.",
+"Because u don't judge me for being imperfect.",
+"Because u remind me that I don't have to have everything figured out.",
+"Because u make me feel like I don't have to handle everything alone.",
+"Because u bring me comfort without even knowing it.",
+"Because sometimes just talking to u makes things feel okay.",
+"Because u make me feel genuinely cared for.",
+"Because u make me want to care for u just as much.",
+"Because I love how I feel when we're together.",
+"Because I love how I still feel connected to u when we're apart.",
+"Because somehow, u became my favorite person to talk to.",
+"Because u're one of the first people I want to tell things to.",
+"Because your opinion genuinely matters to me.",
+"Because I want to hear what u think.",
+"Because I want to know what makes u happy.",
+"Because I want to know what makes u sad.",
+"Because I want to understand u, not just know u.",
+"Because I want to keep learning how to love u better.",
+"Because u're not perfect, and I don't expect u to be.",
+"Because I like u exactly as u are.",
+"Because I wouldn't change the person u are.",
+"Because your imperfections are part of what makes u, u.",
+"Because your flaws don't make me love u less.",
+"Because they make me want to understand u more.",
+"Because I love the person u are when u're happy.",
+"Because I love the person u are when u're being silly.",
+"Because I love the person u are when u're quiet.",
+"Because I love every version of u I've gotten to know.",
+"Because I want to know the versions of u I haven't met yet.",
+"Because I don't know exactly what the future holds.",
+"Because whatever happens, I'm thankful that I got to meet u.",
+"Because u made a part of my life more beautiful.",
+"Because u've given me memories I'll always treasure.",
+"Because u've given me reasons to smile on days I didn't feel like smiling.",
+"Because u make me feel something I can't really explain.",
+"Because no matter how many reasons I write, it still won't feel like enough.",
+"Because I could probably make another 200 reasons after this.",
+"Because every little thing about u gives me another reason.",
+"Because I don't think I'll ever run out of reasons to appreciate u.",
+"Because there's always something new I find cute about u.",
+"Because knowing u has become one of my favorite parts of my life.",
+"And last but not least. To my mj if ur asking why i did this. because at the end of this every reason. I would still choose you over and over again. :)" ];
+
+
+
+/* =========================
+   REASON CONTROLS
+========================= */
+
+let currentReason = 0;
+
+function updateReason() {
+
+    const number =
+        document.getElementById("reasonNumber");
+
+    const text =
+        document.getElementById("reasonText");
+
+    const bar =
+        document.getElementById("progressBar");
+
+    number.innerText =
+        "REASON " + (currentReason + 1) + " OF 200";
+
+    text.innerText =
+        reasons[currentReason];
+
+    bar.style.width =
+        ((currentReason + 1) / 200 * 100) + "%";
+
+    text.style.animation = "none";
+
+    setTimeout(() => {
+        text.style.animation = "appear .4s ease";
+    }, 10);
+
+    if (currentReason === 199) {
+
+        setTimeout(() => {
+
+            document.getElementById("finalSection")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+
+        }, 1000);
+
+    }
+}
+
+
+function nextReason() {
+
+    if (currentReason < 199) {
+
+        currentReason++;
+
+        updateReason();
+
+    }
+
+}
+
+
+function previousReason() {
+
+    if (currentReason > 0) {
+
+        currentReason--;
+
+        updateReason();
+
+    }
+
+}
+
+
+/* =========================
+   MUSIC
+========================= */
+
+/*
+IMPORTANT:
+Replace the URL below with the actual YouTube WATCH URL
+for your song.
+
+Example:
+https://www.youtube.com/watch?v=XXXXXXXXXXX
+*/
+
+function openSong() {
+
+    window.open(
+        "https://share.google/8EbdhouvynFAuIPBs",
+        "_blank"
+    );
+
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+function createHeart() {
+
+    const heart =
+        document.createElement("div");
+
+    heart.className = "heart";
+
+    const hearts = ["💜", "💛", "♡", "♥"];
+
+    heart.innerText =
+        hearts[Math.floor(Math.random() * hearts.length)];
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+    heart.style.fontSize =
+        (12 + Math.random() * 18) + "px";
+
+    heart.style.animationDuration =
+        (6 + Math.random() * 8) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 14000);
+}
+
+setInterval(createHeart, 700);
+
+
+/* INITIALIZE */
+
+updateReason();
+
+</script>
+
+</body>
+</html>
