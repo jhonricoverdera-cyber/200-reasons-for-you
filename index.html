@@ -625,9 +625,9 @@ footer {
 <body>
 
 <!-- BACKGROUND MUSIC -->
-<audio id="backgroundMusic" loop preload="auto">
-    <source src="./Oursong.mp3" type="audio/mpeg">
 
+<audio id="backgroundMusic" loop>
+    <source src="Oursong.mp3" type="audio/mpeg">
 </audio>
 
 
@@ -654,6 +654,7 @@ footer {
 
         <button onclick="unlock()">
             Open my heart 💛
+
         </button>
 
         <div id="error">
@@ -697,43 +698,7 @@ footer {
 
         </div>
 
-    </section>
-
-
-    <!-- PHOTOS -->
-
-    <section class="photoSection">
-
-        <div class="container">
-
-            <h2>Us 💜</h2>
-
-            <p class="sectionIntro">
-                A few little memories that I want to keep.
-            </p>
-
-            <div class="photoGrid">
-
-                <div class="photoCard">
-                  <img src="photo1.jpg">
-                    <p>One of the little moments I want to remember.</p>
-                </div>
-
-                <div class="photoCard">
-                   <img src="photo2.jpg">
-                    <p>Even the random moments with you mean something to me.</p>
-                </div>
-
-                <div class="photoCard">
-                    <img src="photo3.jpg">
-                    <p>One picture, one memory, one reason to smile.</p>
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
+    </section
 
 
     <!-- REASONS -->
@@ -869,37 +834,35 @@ footer {
 
 function unlock() {
 
-    const password =
-        document.getElementById("passwordInput").value;
+    const password = document.getElementById("passwordInput").value;
 
     if (password === "05272008") {
 
-        // Hide password screen
         document.getElementById("passwordScreen").style.display = "none";
-
-        // Show the website
         document.getElementById("website").style.display = "block";
 
-        // Start at the top
         window.scrollTo(0, 0);
 
-        // Start background music
-        const music =
-            document.getElementById("backgroundMusic");
+        const music = document.getElementById("backgroundMusic");
 
         music.volume = 0.35;
 
-        music.play().catch(function(error) {
-            console.log("Music could not start:", error);
-        });
+        music.play()
+            .then(() => {
+                console.log("Music started!");
+            })
+            .catch((error) => {
+                console.log("Music error:", error);
+                alert("The website opened, but the music file could not be played.");
+            });
 
     } else {
 
-        // Show wrong password message
         document.getElementById("error").style.display = "block";
 
     }
 }
+
 
 
 /* ENTER KEY FOR PASSWORD */
